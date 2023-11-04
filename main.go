@@ -35,7 +35,8 @@ func handleNetConnection(c net.Conn) {
 			break
 		}
 
-		_, err = c.Write([]byte("Message received: " + received))
+		response := []byte("Message received: " + received)
+		_, err = c.Write(response)
 		if err != nil {
 			fmt.Println(err)
 		}
